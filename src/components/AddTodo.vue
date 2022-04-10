@@ -49,6 +49,9 @@ input[type="text"]  {
   border-radius: 5px;
   margin-right: 5px;
 }
+input[type="text"]:focus {
+  border: rgb(101, 12, 164) 3px solid;
+}
 
 input[type="submit"] {
   width: 20%;
