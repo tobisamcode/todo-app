@@ -17,10 +17,16 @@ import { mapActions } from "vuex"
 
 export default {
   name: 'AddTodo',
+  data() {
+    return {
+      title: ''
+    }
+  },
   methods: {
     ...mapActions(['addTodo']),
     handleSubmit() {
       this.addTodo(this.title);
+      this.title = '';
     }
   },
 
