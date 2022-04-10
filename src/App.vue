@@ -26,7 +26,9 @@ export default {
 
 <style>
 .head {
-    font-size: 30px;
+  color: rgb(111, 107, 107);
+  font-size: 27px;
+  letter-spacing: 5px;
     
 }
 
