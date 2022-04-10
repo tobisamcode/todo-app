@@ -12,7 +12,7 @@ const store = createStore({
     },
     actions: {
         async fetchTodos({ commit }) {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
+            const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
 
             commit('setTodos', response.data)
         },
@@ -25,7 +25,17 @@ const store = createStore({
             await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
 
             commit('removeTodo', id);
+        },
+        async filterTodos({ commit }, e) {
+            // Get selected number by vanilla javascript
+            const limit = parseInt(e.target.options[e.target.options.selectedIndex].innerText);
+            console.log(limit);
+
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${limit}`);
+
+            commit('setTodos', response.data);
         }
+
     },
     mutations: {
         setTodos: (state, todos) => (state.todos = todos),
