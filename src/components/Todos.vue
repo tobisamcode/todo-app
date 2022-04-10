@@ -3,8 +3,8 @@
     <h3 class="head">Todo App</h3>
     <div class="todos">
       <div v-for="todo in allTodos" :key="todo.id" class="todo">
-      {{ todo.title }}
-      <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
+        {{ todo.title }}
+        <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
     </div>
     </div>
   </div>
