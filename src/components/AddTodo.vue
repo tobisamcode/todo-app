@@ -2,7 +2,7 @@
   <div>
     <h3 class="head">Add Todo</h3>
     <div class="add">
-      <form action="">
+      <form @submit.prevent="handleSubmit">
         <input type="text" v-model="title" placeholder="Add Todo...">
         <input type="submit" value="submit">
       </form>
@@ -13,8 +13,18 @@
 
 
 <script>
+import { mapActions } from "vuex"
+
 export default {
-  
+  name: 'AddTodo',
+  methods: {
+    ...mapActions(['addTodo']),
+    handleSubmit() {
+      this.addTodo(this.title);
+    }
+  },
+
+
 }
 </script>
 
