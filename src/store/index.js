@@ -20,11 +20,17 @@ const store = createStore({
             const response = await axios.post('https://jsonplaceholder.typicode.com/todos', { title, completed: false });
 
             commit('newTodo', response.data);
+        },
+        async deleteTodo({ commit }, id) {
+            await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+
+            commit('removeTodo', id);
         }
     },
     mutations: {
         setTodos: (state, todos) => (state.todos = todos),
         newTodo: (state, todo) => state.todos.unshift(todo),
+        removeTodo: (state, id) => state.todos = state.todos.filter(todo => todo.id !== id)
     },
 
 });
