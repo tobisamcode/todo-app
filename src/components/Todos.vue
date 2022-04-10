@@ -27,7 +27,7 @@ export default {
 <style scoped>
 
   .head {
-    font-size: 30px;
+    
     margin-bottom: 2rem;
   }
   .todos {
