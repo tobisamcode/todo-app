@@ -14,8 +14,14 @@
 import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Todos',
+  data() {
+    return {
+      title: ''
+    }
+  },
   methods: {
-    ...mapActions(['fetchTodos'])
+    ...mapActions(['fetchTodos']),
+  
   },
   computed: mapGetters(['allTodos']),
   created() {
@@ -27,7 +33,6 @@ export default {
 <style scoped>
 
   .head {
-    
     margin-bottom: 2rem;
   }
   .todos {
