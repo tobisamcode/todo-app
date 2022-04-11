@@ -1,4 +1,4 @@
-import { mapActions } from 'vuex';
+
 <template>
   <div class="filter">
     Filter Todos
@@ -40,6 +40,7 @@ select {
   border-radius: 5px;
   outline: 0;
   border: rgb(101, 12, 164) 1px solid;
+  text-align: center;
 }
 select:focus {
   border: rgb(101, 12, 164) 3px solid;
