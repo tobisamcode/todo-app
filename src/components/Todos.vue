@@ -6,6 +6,7 @@
       <p v-if="loading">loading....</p>
       <div v-else v-for="todo in allTodos" :key="todo.id" class="todo">
         {{ todo.title }}
+      
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
     </div>
     </div>
@@ -33,7 +34,12 @@ export default {
     this.fetchTodos()
     .then(() => {
       this.loading = false;
-    })
+    });
+    this.loading= true;
+    this.deleteTodo()
+    .then(() => {
+      this.loading = false;
+    });
 
   },
 }
