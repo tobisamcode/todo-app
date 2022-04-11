@@ -1,8 +1,10 @@
 <template>
   <div>
     <h3 class="head">Todo App</h3>
+    
     <div class="todos">
-      <div v-for="todo in allTodos" :key="todo.id" class="todo">
+      <p v-if="loading">loading....</p>
+      <div v-else v-for="todo in allTodos" :key="todo.id" class="todo">
         {{ todo.title }}
         <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
     </div>
@@ -15,12 +17,24 @@
 import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Todos',
+  data() {
+    return {
+      loading: false
+    }
+  },
   methods: {
     ...mapActions(['fetchTodos', 'deleteTodo']),
+
+    
   },
   computed: mapGetters(['allTodos']),
   created() {
-    this.fetchTodos();
+    this.loading = true;
+    this.fetchTodos()
+    .then(() => {
+      this.loading = false;
+    })
+
   },
 }
 </script>
